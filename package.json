@@ -5,10 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:stage": "vue-cli-service build --mode staging",
+    "build:test": "vue-cli-service build --mode test",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "element-ui": "^2.14.0",
+    "normalize.css": "^8.0.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
