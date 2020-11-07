@@ -1,4 +1,3 @@
-console.log(process.env.VUE_APP_BASE_API, "000");
 module.exports = {
   publicPath: "/",
   outputDir: "dist",
