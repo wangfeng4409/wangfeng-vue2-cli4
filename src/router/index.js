@@ -5,6 +5,7 @@ import Layout from "@/layout/Layout.vue";
 const Home = () => import("@/views/Home.vue");
 const News = () => import("@/views/News.vue");
 const About = () => import("@/views/About.vue");
+const Three = () => import("@/views/Three.vue");
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,17 @@ const routes = [
         path: "about",
         name: "About",
         component: About
+      }
+    ]
+  },
+  {
+    path: "/three",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "Three",
+        component: Three
       }
     ]
   }

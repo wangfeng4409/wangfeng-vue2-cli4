@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/Message.vue";
+import HelloWorld from "@/views/components/Message.vue";
 import { postList } from "@/api/interface.js";
 
 export default {
