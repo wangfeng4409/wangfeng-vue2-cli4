@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="Vue logo" src="../../assets/logo.png" />
     <HelloWorld msg="Hello World" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/views/components/Message.vue";
+import HelloWorld from "@/views/first/components/Message.vue";
 import { postList } from "@/api/interface.js";
 
 export default {

@@ -2,14 +2,14 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/layout/Layout.vue";
 
-const Home = () => import("@/views/Home.vue");
-const News = () => import("@/views/News.vue");
-const About = () => import("@/views/About.vue");
-const Three = () => import("@/views/Three.vue");
-
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+    hidden: true
+  },
   {
     path: "",
     redirect: "/admin"
@@ -17,6 +17,7 @@ const routes = [
   {
     path: "/admin",
     component: Layout,
+    meta: { title: "一级菜单" },
     children: [
       {
         path: "",
@@ -25,34 +26,39 @@ const routes = [
       {
         path: "home",
         name: "Home",
-        component: Home
+        component: () => import("@/views/first/Home.vue"),
+        meta: { title: "home" }
       },
       {
         path: "news",
         name: "News",
-        component: News
+        component: () => import("@/views/first/News.vue"),
+        meta: { title: "news" }
       }
     ]
   },
   {
     path: "/second",
     component: Layout,
+    meta: { title: "二级菜单" },
     children: [
       {
         path: "about",
         name: "About",
-        component: About
+        component: () => import("@/views/second/About.vue"),
+        meta: { title: "about" }
       }
     ]
   },
   {
     path: "/three",
     component: Layout,
+    meta: { title: "三级菜单" },
     children: [
       {
         path: "",
         name: "Three",
-        component: Three
+        component: () => import("@/views/third/Three.vue")
       }
     ]
   }

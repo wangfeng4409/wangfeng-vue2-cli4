@@ -5,7 +5,9 @@
         <side-item />
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <nav-bar />
+        </el-header>
         <el-main>
           <app-main />
         </el-main>
@@ -16,11 +18,13 @@
 
 <script>
 import SideItem from "./SideItem";
+import NavBar from "./NavBar";
 import AppMain from "./AppMain";
 export default {
   name: "Layout",
   components: {
     SideItem,
+    NavBar,
     AppMain
   }
 };
@@ -34,7 +38,7 @@ export default {
   height: 100%;
 }
 .el-header {
-  background-color: #b3c0d1;
+  background-color: #ffffff;
   color: #333;
   text-align: center;
   line-height: 60px;
