@@ -3,7 +3,7 @@
     <div class="left">
       <breadcrumb />
     </div>
-    <div class="right">22</div>
+    <div class="right" @click="handleLoginout">退出登录</div>
   </div>
 </template>
 
@@ -14,6 +14,12 @@ export default {
   name: "NavBar",
   components: {
     Breadcrumb
+  },
+  methods: {
+    handleLoginout() {
+      localStorage.clear();
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`);
+    }
   }
 };
 </script>
@@ -29,6 +35,7 @@ export default {
   }
   .right {
     width: 150px;
+    cursor: pointer;
   }
 }
 </style>

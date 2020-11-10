@@ -8,23 +8,24 @@ router.beforeEach((to, from, next) => {
   NProgress.start();
   document.title = getPageTitle(to.meta.title);
 
-  const token = localStorage.getItem("token");
-  console.log(token, "111");
-  console.log(to, "222");
-  next();
-  //   if (token) {
-  //     if (to.path === "/login") {
-  //       // if is logged in, redirect to the home page
-  //       next({ path: "/" });
-  //       NProgress.done();
-  //     } else {
-  //       next();
-  //       NProgress.done();
-  //     }
-  //   } else {
-  //     next("/login");
-  //     NProgress.done();
-  //   }
+  const hasToken = localStorage.getItem("token");
+
+  if (hasToken) {
+    if (to.path === "/login") {
+      // if is logged in, redirect to the home page
+      next({ path: "/" });
+      NProgress.done();
+    } else {
+      next();
+    }
+  } else {
+    if (to.path === "/login") {
+      next();
+    } else {
+      next(`/login?redirect=${to.path}`);
+      NProgress.done();
+    }
+  }
 });
 
 router.afterEach(() => {

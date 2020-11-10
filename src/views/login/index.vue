@@ -21,6 +21,7 @@
           type="text"
           tabindex="1"
           auto-complete="on"
+          prefix-icon="el-icon-user-solid"
         />
       </el-form-item>
 
@@ -35,6 +36,8 @@
           tabindex="2"
           auto-complete="on"
           @keyup.enter.native="handleLogin"
+          prefix-icon="el-icon-lock"
+          show-password
         />
       </el-form-item>
 
@@ -44,6 +47,11 @@
         @click.native.prevent="handleLogin"
         >Login</el-button
       >
+
+      <div class="tips">
+        <span style="margin-right:20px;">username: admin</span>
+        <span> password: any</span>
+      </div>
     </el-form>
   </div>
 </template>
@@ -75,6 +83,8 @@ export default {
       },
       loginRules: {
         username: [
+          // trigger: "blur"鼠标失去焦点的时候会触发验证
+          // validator: 自定义校验
           { required: true, trigger: "blur", validator: validateUsername }
         ],
         password: [
@@ -128,7 +138,7 @@ $cursor: #fff;
       border: 0px;
       -webkit-appearance: none;
       border-radius: 0px;
-      padding: 12px 5px 12px 15px;
+      padding: 12px 5px 12px 35px;
       color: $light_gray;
       height: 47px;
       caret-color: $cursor;
@@ -181,14 +191,6 @@ $light_gray: #eee;
     }
   }
 
-  .svg-container {
-    padding: 6px 5px 6px 15px;
-    color: $dark_gray;
-    vertical-align: middle;
-    width: 30px;
-    display: inline-block;
-  }
-
   .title-container {
     position: relative;
 
@@ -199,16 +201,6 @@ $light_gray: #eee;
       text-align: center;
       font-weight: bold;
     }
-  }
-
-  .show-pwd {
-    position: absolute;
-    right: 10px;
-    top: 7px;
-    font-size: 16px;
-    color: $dark_gray;
-    cursor: pointer;
-    user-select: none;
   }
 }
 </style>
