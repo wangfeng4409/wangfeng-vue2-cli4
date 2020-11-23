@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     handleLoginout() {
-      localStorage.clear();
+      this.$store.dispatch("user/logout");
       this.$router.push(`/login?redirect=${this.$route.fullPath}`);
     }
   }

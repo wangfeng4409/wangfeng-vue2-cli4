@@ -105,7 +105,7 @@ export default {
   },
   methods: {
     handleLogin() {
-      localStorage.setItem("token", "wangfeng");
+      this.$store.dispatch("user/login", this.loginForm);
       this.$router.push({ path: this.redirect || "/" });
     }
   }

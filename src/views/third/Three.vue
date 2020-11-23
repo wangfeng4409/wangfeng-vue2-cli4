@@ -15,7 +15,7 @@ export default {
   methods: {
     handleJump() {
       this.$router.push({
-        path: "/about"
+        name: "About"
       });
     }
   }

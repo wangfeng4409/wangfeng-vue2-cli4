@@ -1,6 +1,7 @@
 import router from "./router";
 import NProgress from "nprogress"; // 进度条
 import "nprogress/nprogress.css"; // 进度条style
+import { getToken } from "@/utils/auth"; // get token from cookie
 import getPageTitle from "@/utils/get-page-title"; // 获取页面的title
 
 router.beforeEach((to, from, next) => {
@@ -8,7 +9,7 @@ router.beforeEach((to, from, next) => {
   NProgress.start();
   document.title = getPageTitle(to.meta.title);
 
-  const hasToken = localStorage.getItem("token");
+  const hasToken = getToken();
 
   if (hasToken) {
     if (to.path === "/login") {

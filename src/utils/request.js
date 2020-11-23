@@ -1,4 +1,6 @@
 import axios from "axios";
+import store from "@/store";
+import { getToken } from "@/utils/auth";
 
 // create an axios instance
 const service = axios.create({
@@ -12,10 +14,10 @@ service.interceptors.request.use(
   config => {
     config.headers["Content-Type"] = "application/json";
     // config.headers["Content-Type"] = "application/x-www-form-urlencoded";
-    // if (store.getters.token) {
-    //   config.headers["Authorization"] = "Bearer " + getToken()
-    //   config.headers["Content-Type"] = "application/json"
-    // }
+    if (store.getters.token) {
+      config.headers["Authorization"] = "Bearer " + getToken();
+      config.headers["Content-Type"] = "application/json";
+    }
     return config;
   },
   error => {
