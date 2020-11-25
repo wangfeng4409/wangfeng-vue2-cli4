@@ -1,23 +1,16 @@
 <template>
   <div class="hello">
-    <h1 @click="handleJump">{{ msg }}</h1>
+    <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "News",
+  name: "Room",
   data() {
     return {
-      msg: "news"
+      msg: "aaa"
     };
-  },
-  methods: {
-    handleJump() {
-      this.$router.push({
-        path: "/second/about"
-      });
-    }
   }
 };
 </script>

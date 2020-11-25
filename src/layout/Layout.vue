@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <el-container>
       <el-aside width="200px">
-        <side-item />
+        <side-items />
       </el-aside>
       <el-container>
         <el-header>
@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import SideItem from "./SideItem";
+import SideItems from "./SideItems";
 import NavBar from "./NavBar";
 import AppMain from "./AppMain";
 export default {
   name: "Layout",
   components: {
-    SideItem,
+    SideItems,
     NavBar,
     AppMain
   }

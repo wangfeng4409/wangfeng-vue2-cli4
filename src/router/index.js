@@ -12,10 +12,10 @@ const routes = [
   },
   {
     path: "",
-    redirect: "/admin"
+    redirect: "/first"
   },
   {
-    path: "/admin",
+    path: "/first",
     component: Layout,
     meta: { title: "一级菜单" },
     children: [
@@ -33,7 +33,15 @@ const routes = [
         path: "news",
         name: "News",
         component: () => import("@/views/first/News.vue"),
-        meta: { title: "news" }
+        meta: { title: "news" },
+        children: [
+          {
+            path: "room",
+            name: "Room",
+            component: () => import("@/views/first/Room.vue"),
+            meta: { title: "room" }
+          }
+        ]
       }
     ]
   },
