@@ -65,32 +65,3 @@ export default {
   }
 };
 </script>
-<!-- 
-  <el-submenu index="/first">
-    <template slot="title">
-      <i class="el-icon-message"></i>一级菜单
-    </template>
-    <el-menu-item-group>
-      <el-menu-item index="/first/home">
-        home
-      </el-menu-item>
-      <el-menu-item index="/first/news">
-        news
-      </el-menu-item>
-    </el-menu-item-group>
-  </el-submenu>
-
-  <el-submenu index="/second">
-    <template slot="title"> <i class="el-icon-menu"></i>二级菜单 </template>
-    <el-menu-item-group>
-      <el-menu-item index="/second/about">
-        About
-      </el-menu-item>
-    </el-menu-item-group>
-  </el-submenu>
-
-  <el-menu-item index="/three">
-    <i class="el-icon-setting"></i>
-    <span slot="title">三级菜单</span>
-  </el-menu-item>
--->

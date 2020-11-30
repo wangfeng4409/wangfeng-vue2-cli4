@@ -57,7 +57,7 @@ export default {
     };
   },
   created() {
-    this.axiosData();
+    // this.axiosData();
   },
   methods: {
     axiosData() {

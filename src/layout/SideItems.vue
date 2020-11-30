@@ -1,13 +1,7 @@
 <template>
   <div class="aside">
-    <el-menu
-      :default-active="$route.path"
-      @open="test"
-      background-color="#304156"
-      text-color="#bfcbd9"
-      active-text-color="#409EFF"
-      router
-    >
+    <div class="title">wangfeng</div>
+    <el-menu :default-active="$route.path" router>
       <side-item
         v-for="route in routes"
         :key="route.path"
@@ -26,25 +20,18 @@ export default {
   },
   computed: {
     routes() {
+      console.log(this.$router, "sideItems");
       return this.$router.options.routes.filter(route => route.children);
-    }
-  },
-  methods: {
-    test(key, keyPath) {
-      if (key === "news") {
-        let route = "";
-        keyPath.forEach((key, index) => {
-          if (index === keyPath.length - 1) {
-            route += "/" + key;
-          } else {
-            route += key;
-          }
-        });
-        this.$router.push({
-          path: route
-        });
-      }
     }
   }
 };
 </script>
+<style lang="scss" scoped>
+.aside {
+  .title {
+    font-size: 20px;
+    padding: 20px 0px;
+    font-weight: bolder;
+  }
+}
+</style>

@@ -1,6 +1,7 @@
 <template>
-  <div class="hello">
+  <div class="news">
     <h1 @click="handleJump">{{ msg }}</h1>
+    <router-view />
   </div>
 </template>
 

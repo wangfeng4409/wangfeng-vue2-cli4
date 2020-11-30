@@ -4,7 +4,7 @@ import Layout from "@/layout/Layout.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
+export const constantRoutes = [
   {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
@@ -57,25 +57,34 @@ const routes = [
         meta: { title: "about" }
       }
     ]
-  },
-  {
-    path: "/three",
-    component: Layout,
-    meta: { title: "三级菜单" },
-    children: [
-      {
-        path: "",
-        name: "Three",
-        component: () => import("@/views/third/Three.vue")
-      }
-    ]
   }
+  // {
+  //   path: "/three",
+  //   component: Layout,
+  //   meta: { title: "三级菜单" },
+  //   children: [
+  //     {
+  //       path: "",
+  //       name: "Three",
+  //       component: () => import("@/views/third/Three.vue")
+  //     }
+  //   ]
+  // }
 ];
 // BASE_URL取决于vue.config.js中的publicPath
-const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes
-});
+const createRouter = () =>
+  new VueRouter({
+    mode: "history",
+    base: process.env.BASE_URL,
+    // 解决vue框架页面跳转有白色不可追踪色块的bug
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
+  });
+const router = createRouter();
+
+export function resetRouter() {
+  const newRouter = createRouter();
+  router.matcher = newRouter.matcher; // reset router
+}
 
 export default router;

@@ -1,10 +1,12 @@
 import { getToken, setToken, removeToken } from "@/utils/auth";
+import { constantRoutes } from "@/router";
+import Layout from "@/layout/Layout.vue";
+const Three = () => import("@/views/third/Three.vue");
 
 const getDefaultState = () => {
   return {
     token: getToken(),
-    name: "",
-    avatar: ""
+    addRoutes: []
   };
 };
 
@@ -17,11 +19,9 @@ const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token;
   },
-  SET_NAME: (state, name) => {
-    state.name = name;
-  },
-  SET_AVATAR: (state, avatar) => {
-    state.avatar = avatar;
+  SET_ROUTES: (state, route) => {
+    state.addRoutes = route;
+    state.routes = constantRoutes.concat(route);
   }
 };
 
@@ -38,6 +38,28 @@ const actions = {
   logout({ commit }) {
     removeToken(); // must remove  token  first
     commit("RESET_STATE");
+  },
+  // 获取用户的动态路由
+  getMenuByUser({ commit }) {
+    let accessedRoutes = [
+      {
+        path: "/three",
+        component: Layout,
+        meta: { title: "三级菜单" },
+        children: [
+          {
+            path: "",
+            name: "Three",
+            component: Three
+          }
+        ]
+      }
+    ];
+    return new Promise(resolve => {
+      commit("SET_ROUTES", accessedRoutes);
+      let a = constantRoutes.concat(accessedRoutes);
+      resolve(a);
+    });
   }
 };
 
