@@ -3,7 +3,7 @@
     <div class="title">wangfeng</div>
     <el-menu :default-active="$route.path" router>
       <side-item
-        v-for="route in routes"
+        v-for="route in permission_routes"
         :key="route.path"
         :item="route"
         :base-path="route.path"
@@ -12,6 +12,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 import SideItem from "./components/SideItem";
 export default {
   name: "SideItems",
@@ -19,10 +20,7 @@ export default {
     SideItem
   },
   computed: {
-    routes() {
-      console.log(this.$router, "sideItems");
-      return this.$router.options.routes.filter(route => route.children);
-    }
+    ...mapGetters(["permission_routes"])
   }
 };
 </script>

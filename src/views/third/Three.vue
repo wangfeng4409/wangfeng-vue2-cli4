@@ -15,7 +15,12 @@ export default {
   methods: {
     handleJump() {
       this.$router.push({
-        name: "About"
+        name: "About",
+        query: {
+          id: "111",
+          name: "wf",
+          date: "2020-10-10"
+        }
       });
     }
   }

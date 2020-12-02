@@ -6,7 +6,8 @@ const Three = () => import("@/views/third/Three.vue");
 const getDefaultState = () => {
   return {
     token: getToken(),
-    addRoutes: []
+    addRoutes: [],
+    routes: []
   };
 };
 
@@ -57,8 +58,7 @@ const actions = {
     ];
     return new Promise(resolve => {
       commit("SET_ROUTES", accessedRoutes);
-      let a = constantRoutes.concat(accessedRoutes);
-      resolve(a);
+      resolve(accessedRoutes);
     });
   }
 };
