@@ -7,3 +7,11 @@ export function postList(url, data) {
     data
   });
 }
+
+export function homemapApi(url, data) {
+  return request({
+    url: "/sfa/backend" + url,
+    method: "post",
+    data
+  });
+}

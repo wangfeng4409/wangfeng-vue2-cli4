@@ -11,6 +11,9 @@ import router from "./router";
 import store from "./store";
 
 import "@/permission"; // permission control
+import echarts from "echarts";
+
+Vue.prototype.$echarts = echarts;
 
 Vue.config.productionTip = false;
 

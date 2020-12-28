@@ -6,7 +6,6 @@ import { getToken } from "@/utils/auth"; // get token from cookie
 import getPageTitle from "@/utils/get-page-title"; // 获取页面的title
 
 router.beforeEach(async (to, from, next) => {
-  console.log(to, "to.path");
   // start progress bar
   NProgress.start();
   document.title = getPageTitle(to.meta.title);
